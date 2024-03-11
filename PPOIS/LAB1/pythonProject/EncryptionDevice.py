@@ -36,7 +36,6 @@ def menu():
                 device.set_data(data)
             elif choice == 2:
                 device.encrypt_data()
-                print("data encrypted")
             elif choice == 3:
                 device.show_encrypted_data()
             elif choice == 4:
@@ -47,6 +46,8 @@ def menu():
                 device.analyze_algorythm()
             elif choice == 7:
                 device.algorythm.manage_key()
+            elif choice == 8:
+                break
             else:
                 print("wrong choice, try again -> ")
         else:
@@ -63,7 +64,7 @@ class EncryptionDevice:
     __password: str = "12qw"
 
     def __init__(self, algorythm_: Algorythm):
-        self.algorythm = algorythm_
+        self.__algorythm = algorythm_
 
     def set_data(self, data: Data):
         self.__data = data
@@ -72,7 +73,8 @@ class EncryptionDevice:
         if self.__data.data == "":
             print("There is no data for encrypting")
         else:
-            self.__en_data.data = self.algorythm.caesar_encryption(self.__data.data, bool(0))
+            self.__en_data.data = self.__algorythm.caesar_encryption(self.__data.data, bool(0))
+            print("data encrypted")
 
     def show_encrypted_data(self):
         if self.__en_data.data == "":
@@ -82,9 +84,9 @@ class EncryptionDevice:
 
     def decipher_data(self):
         if self.__en_data.data == "":
-            print("There is no encrypted data for deciphering it")
+            print("There is no encrypted data for deciphering")
         else:
-            print("Deciphered Data: ", self.algorythm.caesar_encryption(self.__en_data.data, bool(1)))
+            print("Deciphered Data: ", self.__algorythm.caesar_encryption(self.__en_data.data, bool(1)))
 
     def show_original_data(self):
         if self.__data.data == "":
@@ -96,7 +98,7 @@ class EncryptionDevice:
         if self.__data.data == "" or self.__en_data.data == "":
             print("lack of data ")
         else:
-            print("Code was broken in ", self.algorythm.caesar_analyze(self.__en_data.data, self.__data.data),
+            print("Code was broken in ", self.__algorythm.caesar_analyze(self.__en_data.data, self.__data.data),
                   "iterations")
 
     def security(self) -> bool:
@@ -106,8 +108,3 @@ class EncryptionDevice:
             is_approved = True
         return is_approved
 
-    def get_data(self) -> str:
-        return self.__data.data
-
-    def get_encrypted_data(self) -> str:
-        return self.__en_data.data
