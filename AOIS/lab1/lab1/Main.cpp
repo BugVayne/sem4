@@ -18,20 +18,16 @@ int main()
 
 	BinaryMath b;
 	BinaryMath c;
-	c.SetDecimal(-5);
+	c.SetDecimal(2);
 	c.PrintDecimalForm();
-	//b.SetDecimal(-14);
-	//b.PrintDecimalForm();
+	b.SetDecimal(-6);
+	b.PrintDecimalForm();
 	c.PrintBinaryForm();
-	c.ConvertToInverse();
-	c.ConvertToAdditional(0);
-	c.PrintBinaryForm();
-	/*b.PrintBinaryForm();
+	b.PrintBinaryForm();
 	BinaryMath d;
 	d = b + c;
 	d.PrintBinaryForm();
-	d.PrintDecimalForm();*/
-
+	d.PrintDecimalForm();
 
 	return 0;
 }

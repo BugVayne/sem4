@@ -11,7 +11,7 @@ class Key:
         choice: int = int(input())
         if choice == 1:
             print("Enter the previous key ->")
-            if input() == self.key:
+            if int(input()) == self.key:
                 print("Enter new Key ->")
                 self.key = int(input())
             else:

@@ -95,8 +95,11 @@ void BinaryForm::ConvertToAdditional(bool _is_to_straight)
 		this->binary_form.at(0) = 0;
 		this->PushTop(1);
 	}
-	if(_is_to_straight)
+	if (_is_to_straight)
+	{
 		this->type = STRAIGHT;
+		this->ConvertToDecimal();
+	}
 	else 
 		this->type = ADDITIONAL;
 }
