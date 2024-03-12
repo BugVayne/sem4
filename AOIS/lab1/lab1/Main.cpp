@@ -3,24 +3,20 @@
 
 int main()
 {
-	BinaryForm a;
-	/*a.SetDecimal(-12);
+	/*BinaryForm a;
+	a.SetDecimal(-13);
 	a.PrintBinaryForm();
 	a.PrintDecimalForm();
 	a.ConvertToInverse();
 	a.PrintBinaryForm();
 	a.ConvertToAdditional(0);
-	a.PrintBinaryForm();
-	a.ConvertToInverse();
-	a.PrintBinaryForm();
-	a.ConvertToAdditional(1);
 	a.PrintBinaryForm();*/
 
 	BinaryMath b;
 	BinaryMath c;
-	c.SetDecimal(2);
+	c.SetDecimal(-1);
+	b.SetDecimal(50);
 	c.PrintDecimalForm();
-	b.SetDecimal(-6);
 	b.PrintDecimalForm();
 	c.PrintBinaryForm();
 	b.PrintBinaryForm();

@@ -72,27 +72,21 @@ void BinaryForm::ConvertToInverse()
 void BinaryForm::ConvertToAdditional(bool _is_to_straight)
 { 	
 	bool is_next_rank = true;
-	for (size_t i = this->binary_form.size()-1; i>0 ; i--)
-	{
-		if (is_next_rank == true)
+	for (size_t i = this->binary_form.size()-1; i>=0 && is_next_rank == true; --i)
+	{	
+		if (this->binary_form.at(i) == 1)
 		{
-			if (this->binary_form.at(i) == 1)
-			{
-				this->binary_form.at(i) = 0;
-				continue;
-			}
-			else
-			{
-				this->binary_form.at(i) = 1;
-				is_next_rank = false;
-			}
-			if (is_next_rank == true && i == this->binary_form.size() - 1)
-				this->PushTop(1);
+			this->binary_form.at(i) = 0;
+		}
+		else
+		{
+			this->binary_form.at(i) = 1;
+			is_next_rank = false;
 		}
 	}
 	if (is_next_rank == true)
 	{
-		this->binary_form.at(0) = 0;
+		//this->binary_form.at(0) = 0;
 		this->PushTop(1);
 	}
 	if (_is_to_straight)
@@ -103,3 +97,4 @@ void BinaryForm::ConvertToAdditional(bool _is_to_straight)
 	else 
 		this->type = ADDITIONAL;
 }
+
