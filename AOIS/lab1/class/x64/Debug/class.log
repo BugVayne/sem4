@@ -1,3 +1,5 @@
 ﻿  BinaryForm.cpp
-D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(53,48): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(55,48): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(107,39): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(108,35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   class.vcxproj -> D:\BSUIR\sem4\AOIS\lab1\x64\Debug\class.lib

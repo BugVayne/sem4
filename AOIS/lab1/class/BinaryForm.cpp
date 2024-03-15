@@ -2,21 +2,23 @@
 #include <cmath>
 void BinaryForm::PrintBinaryForm()
 {
-	cout << "\n    --- Binary form --- \n";
+	cout << " - Binary form: ";
 	if (this->is_negative)
 		cout << "\t 1 ";
 	else
 		cout << "\t 0 ";
 	for (vector<bool>::iterator Iter = this->binary_form.begin(); Iter!=this->binary_form.end() ; Iter++)
 	{
-		cout << " " << *Iter;
+		cout << "" << *Iter;
 	}
 	cout << endl;
+
 }
 
 void BinaryForm::PrintDecimalForm()
 {
-	cout << "\n    --- Decimal form --- \n";
+	this->ConvertToDecimal();
+	cout << " - Decimal form: ";
 	cout << "\t" << this->number << endl;
 }
 void BinaryForm::ConvertToBinary()
@@ -98,3 +100,33 @@ void BinaryForm::ConvertToAdditional(bool _is_to_straight)
 		this->type = ADDITIONAL;
 }
 
+
+
+void BinaryForm::EqualSize(BinaryForm& b)
+{
+	int a_size = this->binary_form.size();
+	int b_size = b.binary_form.size();
+	if (a_size > b_size)
+	{
+		for (size_t i = 0; i < a_size - b_size; i++)
+		{
+			b.PushTop(0);
+		}
+	}
+	else
+	{
+		for (size_t i = 0; i < b_size - a_size; i++)
+		{
+			this->PushTop(0);
+		}
+	}
+}
+
+void BinaryForm::PrintAfterPoint()
+{
+	for (vector<bool>::iterator Iter = this->after_point_precision.begin(); Iter != this->binary_form.end(); Iter++)
+	{
+		cout << "" << *Iter;
+	}
+	cout << endl;
+}

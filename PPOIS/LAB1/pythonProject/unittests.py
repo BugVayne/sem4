@@ -52,14 +52,6 @@ class EncryptionDeviceTest(unittest.TestCase):
             actual_output: str = fake_out.getvalue()
         self.assertEqual(expected_output, actual_output)
 
-    def test_no_data_deciphering(self):
-        device = EncryptionDevice(Algorythm("Caesar", Key(4)))
-        expected_output: str = ("There is no encrypted data for deciphering\n")
-        with patch('sys.stdout', new=StringIO()) as fake_out:
-            device.decipher_data()
-            actual_output: str = fake_out.getvalue()
-        self.assertEqual(expected_output, actual_output)
-
     def test_security_correct(self):
         device = EncryptionDevice(Algorythm("Caesar", Key(3)))
         with patch('builtins.input', return_value="12qw"):

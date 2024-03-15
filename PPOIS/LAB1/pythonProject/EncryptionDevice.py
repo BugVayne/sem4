@@ -16,10 +16,13 @@ def menu():
         else:
             print("Impossible key, try again -> ")
     device = EncryptionDevice(Algorythm("Caesar", Key(temp_key)))
-    choice: int = None
+    choice = None
+    if device.security():
+        pass
+    else:
+        print("rejected")
+        exit(0)
     while choice != 8:
-
-        # if device.security():
         if True:
             print("1 - enter a sentence for encrypting\n"
                   "2 - encrypt data\n"
@@ -29,14 +32,14 @@ def menu():
                   "6 - analyze caesars encryption algorythm\n"
                   "7 - manage key\n"
                   "8 - exit\n")
-            choice = int(input())
-            if choice == 1:
+            choice = input()
+            if choice == '1':
                 print("Enter data -> ")
                 data = Data(input())
                 device.set_data(data)
-            elif choice == 2:
+            elif choice == '2':
                 device.encrypt_data()
-            elif choice == 3:
+            elif choice == '3':
                 device.show_encrypted_data()
             elif choice == 4:
                 device.decipher_data()
@@ -45,13 +48,11 @@ def menu():
             elif choice == 6:
                 device.analyze_algorythm()
             elif choice == 7:
-                device.algorythm.manage_key()
+                device.get_algorythm().manage_key()
             elif choice == 8:
                 break
             else:
                 print("wrong choice, try again -> ")
-        else:
-            print("Rejected")
         print("--------------------")
     print("bye bye")
 
@@ -62,6 +63,9 @@ class EncryptionDevice:
     __algorythm: Algorythm = None
     __en_data: EncryptedData = EncryptedData("")
     __password: str = "12qw"
+
+    def get_algorythm(self):
+        return self.__algorythm
 
     def __init__(self, algorythm_: Algorythm):
         self.__algorythm = algorythm_
@@ -107,4 +111,3 @@ class EncryptionDevice:
         if input() == self.__password:
             is_approved = True
         return is_approved
-

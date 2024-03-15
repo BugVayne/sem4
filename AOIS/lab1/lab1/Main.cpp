@@ -12,18 +12,16 @@ int main()
 	a.ConvertToAdditional(0);
 	a.PrintBinaryForm();*/
 
-	BinaryMath b;
-	BinaryMath c;
-	c.SetDecimal(-1);
-	b.SetDecimal(50);
-	c.PrintDecimalForm();
-	b.PrintDecimalForm();
-	c.PrintBinaryForm();
+	BinaryMath a, b;
+	a.SetDecimal(19);
+	b.SetDecimal(19);
+	cout << " A: ";
+	a.PrintBinaryForm();
+	cout << " B: ";
 	b.PrintBinaryForm();
-	BinaryMath d;
-	d = b + c;
-	d.PrintBinaryForm();
-	d.PrintDecimalForm();
-
+	cout << " A _ B : \n";
+	(a / b).PrintBinaryForm();
+	(a / b).PrintDecimalForm();
+	
 	return 0;
 }
