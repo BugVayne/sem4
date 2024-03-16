@@ -1,0 +1,3 @@
+﻿  SpreadsheetOfTruth.cpp
+D:\BSUIR\sem4\AOIS\lab2\lab2\SpreadsheetOfTruth.cpp(13,18): warning C4244: =: преобразование "double" в "size_t", возможна потеря данных
+  lab2.vcxproj -> D:\BSUIR\sem4\AOIS\lab2\x64\Debug\lab2.lib
