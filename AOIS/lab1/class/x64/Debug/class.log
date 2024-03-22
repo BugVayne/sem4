@@ -1,5 +1,6 @@
-﻿  BinaryForm.cpp
-D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(55,48): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
-D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(107,39): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\BSUIR\sem4\AOIS\lab1\class\BinaryForm.cpp(108,35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+﻿  BinaryFloat.cpp
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryFloat.cpp(18,41): warning C4244: аргумент: преобразование "unsigned __int64" в "double", возможна потеря данных
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryFloat.cpp(37,9): warning C4101: int_part: неиспользованная локальная переменная
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryFloat.cpp(143,32): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\BSUIR\sem4\AOIS\lab1\class\BinaryFloat.cpp(144,36): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   class.vcxproj -> D:\BSUIR\sem4\AOIS\lab1\x64\Debug\class.lib

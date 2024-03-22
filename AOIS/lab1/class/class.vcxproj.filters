@@ -18,9 +18,15 @@
     <ClInclude Include="BinaryForm.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="BinaryFloat.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinaryForm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryFloat.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

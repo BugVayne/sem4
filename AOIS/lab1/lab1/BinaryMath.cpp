@@ -3,7 +3,7 @@
 
 
 
-BinaryMath BinaryMath::operator+ (BinaryMath _binary_number) // 50 -10 still not work
+BinaryMath BinaryMath::operator+ (BinaryMath _binary_number) 
 {
 	BinaryForm a(*this);
 	BinaryForm b(_binary_number);
@@ -81,7 +81,7 @@ BinaryMath BinaryMath::operator+ (BinaryMath _binary_number) // 50 -10 still not
 
 	return result;
 }
-BinaryMath BinaryMath::operator- (BinaryMath _binary_number) // 50 -10 still not work
+BinaryMath BinaryMath::operator- (BinaryMath _binary_number) 
 {
 
 	BinaryForm a(*this);
@@ -229,12 +229,12 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 	bool is_first_iteration = 1;
 	if (divident.number == divisor.number)
 	{
-		result.SetBinary({ 1 }, 0);
+		result.SetBinary({ 1 }, is_result_negative);
 		return result;
 	}
 	while (result.after_point_precision.size() != 5)
 	{
-		if ((divident.binary_form.empty() || divident.IsVectorOnlyNull()) && ostatok.binary_form.at(0) == 0 && !is_first_iteration)
+		if ((divident.binary_form.empty() || divident.IsVectorOnlyNull()) && ostatok.IsVectorOnlyNull() && !is_first_iteration)
 		{
 			for (size_t i = 0; !divident.binary_form.empty(); i++)
 			{
@@ -247,6 +247,7 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 		ostatok.binary_form = {};
 		for (size_t i = 0;  iter_divident < divisor; i++)
 		{
+
 			if (!divident.binary_form.empty())
 			{
 				if (i > 0)
@@ -272,7 +273,6 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 		
 		if (!is_after_point)
 		{
-			
 			ostatok = iter_divident - divisor;
 			result.binary_form.push_back(1);
 		}
@@ -281,12 +281,13 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 			ostatok = iter_divident - divisor;
 			result.after_point_precision.push_back(1);
 		}
-		//cout << "\niter:";
-		//iter_divident.PrintBinaryForm();
-		//cout << "\n ostatok:";
-		//ostatok.PrintBinaryForm();
+		/*cout << "\niter:";
+		iter_divident.PrintBinaryForm();
+		cout << "\n ostatok:";
+		ostatok.PrintBinaryForm();*/
 		is_first_iteration = 0;
 	}
+	result.is_negative = is_result_negative;
 	return result;
 }
 

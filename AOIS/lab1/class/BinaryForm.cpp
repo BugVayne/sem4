@@ -33,9 +33,8 @@ void BinaryForm::ConvertToBinary()
 		this->is_negative = true;
 	for (a = abs(a); a > 0; a = a / 2)
 	{
-		this->PushTop( a % 2);
+		this->PushTop(a % 2);
 	}
-	//this->PushTop(this->is_negative); //if you want to add - to whole number
 }
 
 void BinaryForm::PushTop(bool _element)
