@@ -20,5 +20,6 @@ private:
 	void InitializeSubFormules();
 public:
 	SpreadsheetOfTruth(string _formula);
+	void PrintSubformules();
 };
 

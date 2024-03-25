@@ -7,7 +7,6 @@ class BinaryForm
 
 protected:
 	void ConvertToDecimal();
-	vector<bool> after_point_precision;
 private:
 	enum type_of_code {
 		STRAIGHT,
@@ -19,6 +18,7 @@ private:
 	void ConvertToBinary();
 
 public:
+	vector<bool> after_point_precision;
 	bool is_negative;
 	vector<bool> binary_form;
 	void PushTop(bool _element);

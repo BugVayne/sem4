@@ -22,47 +22,34 @@ SpreadsheetOfTruth::SpreadsheetOfTruth(string _formula)
 
 void SpreadsheetOfTruth::InitializeSubFormules()
 {
-	
-	/*while (!my_stack.empty())
+	stack<char> stack;
+	for (size_t i = 0; i < this->formula.length(); i++)
 	{
-		char iter_char = my_stack.top();
-		if (iter_char == ')')
-			flag = 1;
-		if (flag)
-			subformule += iter_char;
-		if (iter_char == '(')
+		stack.push(this->formula.at(i));
+		if (this->formula.at(i) == ')')
 		{
-			flag = 0;
-			reverse(subformule.begin(), subformule.end());
-			this->subformules.push_back(subformule);
-			subformule = "";
-		}
-		my_stack.pop();
-	}*/
-	
-	for (char iter_char : this->formula)
-	{
-		stack<char> stack;
-		if (iter_char == '(')
-			stack.push(iter_char);
-		else if (iter_char == ')')
-		{
-			string subformula = "";
-			while (!stack.empty() && stack.top() != '(')
+			string subformule = "";
+			while (stack.top() != '(')
 			{
-				subformula = stack.top() + subformula;
+				subformule += stack.top();
 				stack.pop();
 			}
+			subformule += stack.top();
 			stack.pop();
-			subformula = subformula + ')';
-			this->subformules.push_back(subformula);
+			reverse(subformule.begin(), subformule.end());
+			this->subformules.push_back(subformule);
+			stack.push(static_cast<char>((this->subformules.size() - 1) + '0'));
 		}
-		else
-			stack.push(iter_char);
 	}
 
+	
+}
+void SpreadsheetOfTruth::PrintSubformules()
+{
+	cout << "  Subformules:  \n";
 	for (size_t i = 0; i < this->subformules.size(); i++)
 	{
-		cout << endl << i << " - " << subformules.at(i) << endl;
+		cout << this->subformules.at(i) << " --- ";
 	}
+	cout << endl;
 }

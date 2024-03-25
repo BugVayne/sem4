@@ -123,9 +123,9 @@ void BinaryForm::EqualSize(BinaryForm& b)
 
 void BinaryForm::PrintAfterPoint()
 {
-	for (vector<bool>::iterator Iter = this->after_point_precision.begin(); Iter != this->binary_form.end(); Iter++)
+	for (size_t i = 0; i < this->after_point_precision.size(); i++)
 	{
-		cout << "" << *Iter;
+		cout << this->after_point_precision.at(i)<<" ";
 	}
 	cout << endl;
 }

@@ -81,6 +81,7 @@ BinaryMath BinaryMath::operator+ (BinaryMath _binary_number)
 
 	return result;
 }
+
 BinaryMath BinaryMath::operator- (BinaryMath _binary_number) 
 {
 
@@ -180,7 +181,6 @@ void BinaryMath::ExpandNumberToLeft(size_t estimated_size)
 		this->binary_form.push_back(0);
 	}
 }
-
 
 BinaryMath BinaryMath::operator* (BinaryMath _binary_number)
 {
@@ -284,10 +284,21 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 		/*cout << "\niter:";
 		iter_divident.PrintBinaryForm();
 		cout << "\n ostatok:";
-		ostatok.PrintBinaryForm();*/
+		ostatok.PrintBinaryForm();*///-0----------------------------
 		is_first_iteration = 0;
 	}
+	double int_part = this->number / _binary_number.number;
+	double frac_part = this->number % _binary_number.number;//-[--------------------
+
+	cout << " --------  " << frac_part << endl;
+	BinaryForm num1;
+	num1.SetDecimal(int(int_part));
+	BinaryForm num2;
+	num2.SetDecimal(int(frac_part));
+	result.after_point_precision = num2.binary_form;
+	result.binary_form = num1.binary_form;
 	result.is_negative = is_result_negative;
+	result.PrintAfterPoint();
 	return result;
 }
 
