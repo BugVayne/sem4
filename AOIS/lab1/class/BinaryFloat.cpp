@@ -49,6 +49,8 @@ void BinaryFloat::CalcMantiss(double _number)
 		}
 
 	}
+	while (binary.size() < this->mantiss_size)
+		binary.push_back(0);
 	this->mantiss = binary;
 }
 
@@ -61,6 +63,8 @@ void BinaryFloat::PrintBinary()
 	cout << endl;
 	for (size_t i = 0; i < mantiss.size(); i++)
 	{
+		if ((i+1) % 4 == 0)
+			cout << " ";
 		cout << this->mantiss.at(i) << " ";
 	}
 	cout << endl;
@@ -93,14 +97,14 @@ BinaryFloat BinaryFloat::operator+(BinaryFloat _number)
 		a.exp = b.exp;
 	}
 	bool exp_is_plus_rank = 0;
-	cout << "\n ------ mn size a  ---------     " << a.mantiss.size() << endl;;
-	cout << "\n ------ mn size b  ---------     " << b.mantiss.size() << endl;;
-
-	result.mantiss = a.MantissSum(b, exp_is_plus_rank);
+	result.mantiss = a.MantissSum(b);
 	if (result.mantiss.size() > result.mantiss_size)
-		exp_is_plus_rank=1;
+	{
+		exp_is_plus_rank = 1;
+	}
 	result.SetExp(a.exp);
-	cout << "\n ------ boooool ---------     " << exp_is_plus_rank << endl;;
+	result.PrintBinary();
+
 	if (exp_is_plus_rank)
 	{
 		bool is_next_rank = true;
@@ -116,27 +120,24 @@ BinaryFloat BinaryFloat::operator+(BinaryFloat _number)
 				is_next_rank = false;
 			}
 		}
+		result.mantiss.pop_back();
 	}
-
+	if(result.mantiss.at(0) ==1)
+		result.mantiss.at(0) = 0;
 	return result;
 }
 void BinaryFloat::ShiftMantiss(size_t _shift)
 {
-	bool for_insert = 0;
-	for (size_t i = 0; i < this->mantiss.size(); i++)
+	bool for_insert = 1;
+	for (size_t i = 0; i < _shift; i++)
 	{
-
-		if (i == 0)
-			for_insert = 1;
-		else
-			for_insert = 0;
-
 		this->mantiss.insert(this->mantiss.begin(),for_insert);
 		if (this->mantiss.size() > this->mantiss_size)
 			this->mantiss.pop_back();
+		for_insert = 0;
 	}
 }
-vector<bool> BinaryFloat::MantissSum(BinaryFloat _number, bool& _flag)
+vector<bool> BinaryFloat::MantissSum(BinaryFloat _number)
 {
 	vector<bool> binary_sum;
 	bool is_rank_up = 0;

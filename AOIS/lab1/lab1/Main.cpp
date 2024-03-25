@@ -27,7 +27,7 @@ int main()
 	////(result).PrintAfterPoint();
 
 
-	BinaryFloat a(15.4), b(7.3);
+	BinaryFloat a(15.23), b(1.32);
 	cout << "\nresult\n";
 	(a+b).PrintBinary();
 

@@ -26,9 +26,8 @@ public:
 	void PrintBinary();
 	BinaryFloat operator+(BinaryFloat _number);
 	void ShiftMantiss(size_t _shift);
-	vector<bool> MantissSum(BinaryFloat _number, bool& _flag);
+	vector<bool> MantissSum(BinaryFloat _number);
 	void SetMantiss(vector<bool> _mantiss) { this->mantiss = _mantiss; }
 	void SetExp(vector<bool> _exp) { this->exp = _exp; }
-	void SetNumber();
 };
 
