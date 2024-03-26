@@ -232,7 +232,8 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 		result.SetBinary({ 1 }, is_result_negative);
 		return result;
 	}
-	while (result.after_point_precision.size() != 5)
+	int gh=0;
+	while (gh < 10)
 	{
 		if ((divident.binary_form.empty() || divident.IsVectorOnlyNull()) && ostatok.IsVectorOnlyNull() && !is_first_iteration)
 		{
@@ -281,24 +282,40 @@ BinaryMath BinaryMath::operator/ (BinaryMath _binary_number)
 			ostatok = iter_divident - divisor;
 			result.after_point_precision.push_back(1);
 		}
-		/*cout << "\niter:";
-		iter_divident.PrintBinaryForm();
-		cout << "\n ostatok:";
-		ostatok.PrintBinaryForm();*///-0----------------------------
+		
 		is_first_iteration = 0;
+		gh++;
 	}
-	double int_part = this->number / _binary_number.number;
-	double frac_part = this->number % _binary_number.number;//-[--------------------
 
-	cout << " --------  " << frac_part << endl;
+	double int_part;
+	double n = static_cast<double>(this->number) / _binary_number.number;
+	double frac_part = modf(n, &int_part);
+	if(frac_part!=0)
+	{
+		int amount = getDigitsAfterDecimal(frac_part);
+		for (size_t i = 0; i < amount; i++)
+		{
+			frac_part *= 10;
+		}
+	}
 	BinaryForm num1;
 	num1.SetDecimal(int(int_part));
 	BinaryForm num2;
 	num2.SetDecimal(int(frac_part));
 	result.after_point_precision = num2.binary_form;
 	result.binary_form = num1.binary_form;
+
 	result.is_negative = is_result_negative;
-	result.PrintAfterPoint();
 	return result;
 }
 
+int getDigitsAfterDecimal(double number) {
+	string numberString = to_string(number);
+	size_t decimalPosition = numberString.find('.');
+	if (decimalPosition != string::npos) {
+
+		size_t digitsAfterDecimal = numberString.size() - decimalPosition - 1;
+		return static_cast<int>(digitsAfterDecimal);
+	}
+	return 0;
+}

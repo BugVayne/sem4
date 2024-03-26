@@ -123,6 +123,7 @@ void BinaryForm::EqualSize(BinaryForm& b)
 
 void BinaryForm::PrintAfterPoint()
 {
+	cout << " - Numbers after point: ";
 	for (size_t i = 0; i < this->after_point_precision.size(); i++)
 	{
 		cout << this->after_point_precision.at(i)<<" ";

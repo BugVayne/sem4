@@ -13,7 +13,7 @@ int main()
 	a.PrintBinaryForm();*/
 
 	BinaryMath a, b;
-	a.SetDecimal(13);
+	a.SetDecimal(16);
 	b.SetDecimal(3);
 	cout << " A: ";
 	a.PrintBinaryForm();
@@ -22,9 +22,9 @@ int main()
 	cout << " A _ B : \n";
 	BinaryMath result;
 	result = a / b;
-	(result).PrintBinaryForm();
 	(result).PrintDecimalForm();
-
+	(result).PrintBinaryForm();
+	result.PrintAfterPoint();
 
 	/*BinaryFloat a(15.23), b(1.32);
 	cout << "\nresult\n";

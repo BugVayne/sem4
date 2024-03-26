@@ -1,5 +1,8 @@
 #pragma once
 #include"BinaryForm.h"
+#include<string>
+
+
 class BinaryMath : public BinaryForm
 {
 private:
@@ -33,3 +36,4 @@ public:
 	}
 };
 
+int getDigitsAfterDecimal(double number);
